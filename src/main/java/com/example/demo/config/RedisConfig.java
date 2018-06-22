@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheManager;
@@ -72,10 +71,10 @@ public class RedisConfig {
         return factory;
     }
 
+    //缓存管理器
     @Bean
-    public CacheManager cacheManager(RedisTemplate redisTemplate) {
-        RedisCacheManager cacheManager = new RedisCacheManager(redisTemplate);
-        return cacheManager;
+    public RedisCacheManager cacheManager(JedisConnectionFactory jedisConnectionFactory) {
+        return RedisCacheManager.create(jedisConnectionFactory);
     }
 
     @Bean

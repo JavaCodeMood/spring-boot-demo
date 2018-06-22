@@ -1,5 +1,5 @@
-# spring-boot-demo
-springboot1.5-demo-rest-redis-json-druid mybatis
+# spring-boot 2.0-demo
+spring-boot 2.0-demo-rest-redis-json-druid mybatis
 
 快速构建一个 rest API 支持 redis mysql
 
